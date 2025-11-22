@@ -1,0 +1,961 @@
+<!DOCTYPE html><html lang="es"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>La Teoría del Marcador Somático de Antonio Damasio: Emoción, Decisión e Inteligencia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <style>
+        :root {
+            --primary: #1e3a5f;
+            --secondary: #d4af37;
+            --accent: #8b5a3c;
+            --neutral: #f8f6f3;
+            --text-primary: #2c2c2c;
+            --text-secondary: #666666;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--neutral);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(30, 58, 95, 0.85) 0%, rgba(139, 90, 60, 0.75) 100%);
+        }
+        
+        .toc-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: white;
+            border-right: 1px solid #e5e7eb;
+            z-index: 40;
+            overflow-y: auto;
+            padding: 2rem 1.5rem;
+        }
+        
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+        
+        .citation {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted var(--primary);
+        }
+        
+        .citation:hover {
+            background-color: rgba(30, 58, 95, 0.1);
+        }
+        
+        .insight-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(139, 90, 60, 0.05) 100%);
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .brain-circuit {
+            background: linear-gradient(45deg, rgba(30, 58, 95, 0.05) 0%, rgba(212, 175, 55, 0.05) 100%);
+        }
+        
+        .decision-visual {
+            background: radial-gradient(circle at center, rgba(139, 90, 60, 0.1) 0%, rgba(30, 58, 95, 0.05) 100%);
+        }
+        
+        @media (max-width: 1024px) {
+            .toc-fixed {
+                display: none;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+        }
+        
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+            margin: 3rem 0;
+        }
+        
+        .quote-highlight {
+            font-style: italic;
+            color: var(--accent);
+            border-left: 3px solid var(--secondary);
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        @media (max-width: 768px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero h1.serif {
+                font-size: 1.8rem;
+                line-height: 1.2;
+            }
+            .main-content .max-w-6xl.mx-auto.px-8 {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+    </style>
+  <base target="_blank">
+</head>
+
+  <body>
+    <!-- Table of Contents -->
+    <nav class="toc-fixed">
+      <div class="mb-8">
+        <h3 class="serif text-lg font-bold text-gray-800 mb-4">Índice de Contenidos</h3>
+      </div>
+
+      <ul class="space-y-2 text-sm">
+        <li>
+          <a href="#resumen-ejecutivo" class="block py-1 text-gray-600 hover:text-blue-800 transition-colors">Resumen Ejecutivo</a>
+        </li>
+        <li>
+          <a href="#introduccion" class="block py-1 text-gray-600 hover:text-blue-800 transition-colors">1. Introducción a la Teoría</a>
+        </li>
+        <li>
+          <a href="#mecanismo-neurobiologico" class="block py-1 text-gray-600 hover:text-blue-800 transition-colors">2. Mecanismo Neurobiológico</a>
+        </li>
+        <li>
+          <a href="#evidencia-empirica" class="block py-1 text-gray-600 hover:text-blue-800 transition-colors">3. Evidencia Empírica</a>
+        </li>
+        <li>
+          <a href="#inteligencia-cognitiva-emocional" class="block py-1 text-gray-600 hover:text-blue-800 transition-colors">4. Inteligencia Cognitiva vs Emocional</a>
+        </li>
+        <li>
+          <a href="#aplicaciones-practicas" class="block py-1 text-gray-600 hover:text-blue-800 transition-colors">5. Aplicaciones Prácticas</a>
+        </li>
+        <li>
+          <a href="#conclusiones" class="block py-1 text-gray-600 hover:text-blue-800 transition-colors">6. Conclusiones</a>
+        </li>
+      </ul>
+
+      <div class="mt-12 pt-8 border-t border-gray-200">
+        <h4 class="font-semibold text-xs text-gray-500 uppercase tracking-wide mb-3">Referencias Clave</h4>
+        <div class="space-y-2 text-xs text-gray-400">
+          <div>Damasio, A. R. (1994)</div>
+          <div>Bechara, A., et al. (1994)</div>
+          <div>Cambridge Handbook of EI</div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section class="relative min-h-screen flex items-center">
+        <div class="absolute inset-0">
+          <img src="https://kimi-web-img.moonshot.cn/img/pymstatic.com/c934f3c42aef4cb7c12e40fb54533858521591d1.jpg" alt="Interconexión entre cerebro y cuerpo humano" class="w-full h-full object-cover opacity-30" size="wallpaper" aspect="wide" query="cerebro y cuerpo conectados" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+          <div class="hero-overlay absolute inset-0"></div>
+        </div>
+
+        <div class="relative z-10 max-w-6xl mx-auto px-8 py-16">
+          <div class="bento-grid">
+            <div class="text-white">
+              <h1 class="serif text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                <span class="italic">La Teoría del</span>
+                <br/>
+                <span class="text-yellow-300">Marcador Somático</span>
+              </h1>
+              <p class="text-xl lg:text-2xl text-gray-200 mb-8 leading-relaxed">
+                Cómo las señales corporales guían nuestras decisiones más profundas
+              </p>
+              <div class="flex items-center space-x-6 text-sm text-gray-300">
+                <div class="flex items-center space-x-2">
+                  <i class="fas fa-brain"></i>
+                  <span>Neurociencia</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <i class="fas fa-heart"></i>
+                  <span>Emoción y Razón</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
+              <h3 class="serif text-2xl font-bold text-white mb-4">Antonio Damasio</h3>
+              <p class="text-gray-200 mb-6">
+                La revolucionaria hipótesis que desafía la dicotomía tradicional entre razón y emoción, revelando cómo nuestra inteligencia depende de la sabiduría del cuerpo.
+              </p>
+              <div class="flex items-center justify-between text-sm text-yellow-300">
+                <span>Portugal, 1994</span>
+                <i class="fas fa-arrow-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Executive Summary -->
+      <section id="resumen-ejecutivo" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-8">
+          <div class="insight-box rounded-xl p-8 mb-12">
+            <h2 class="serif text-3xl font-bold mb-6 text-gray-800">Resumen Ejecutivo</h2>
+
+            <div class="prose prose-lg max-w-none">
+              <p class="text-gray-700 leading-relaxed mb-6">
+                La teoría del marcador somático de <strong>Antonio Damasio</strong> propone que las decisiones humanas no se basan únicamente en la lógica, sino que están profundamente influenciadas por señales corporales (&#34;marcadores somáticos&#34;) generadas por experiencias emocionales pasadas.
+              </p>
+
+              <div class="grid md:grid-cols-3 gap-6 my-8">
+                <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                  <i class="fas fa-heartbeat text-3xl text-red-500 mb-3"></i>
+                  <h4 class="font-semibold text-gray-800 mb-2">Señales Corporales</h4>
+                  <p class="text-sm text-gray-600">Respuestas fisiológicas que actúan como brújula interna</p>
+                </div>
+                <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                  <i class="fas fa-brain text-3xl text-blue-600 mb-3"></i>
+                  <h4 class="font-semibold text-gray-800 mb-2">Circuito Neural</h4>
+                  <p class="text-sm text-gray-600">vmPFC, amígdala e ínsula como centros clave</p>
+                </div>
+                <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+                  <i class="fas fa-chart-line text-3xl text-green-600 mb-3"></i>
+                  <h4 class="font-semibold text-gray-800 mb-2">Aplicaciones</h4>
+                  <p class="text-sm text-gray-600">IA, psicología, marketing y educación</p>
+                </div>
+              </div>
+
+              <p class="text-gray-700 leading-relaxed">
+                Esta teoría desafía la dicotomía tradicional entre razón y emoción, argumentando que <strong>una vida emocional saludable es esencial para un juicio sólido</strong>. Las implicaciones prácticas abarcan desde el diseño de inteligencia artificial más &#34;humana&#34; hasta la comprensión de trastornos psicológicos y la promoción de comportamientos sostenibles.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Introduction -->
+      <section id="introduccion" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-8">
+          <h2 class="serif text-4xl font-bold mb-8 text-center text-gray-800">1. La Teoría del Marcador Somático: Un Puente Entre Cuerpo y Mente</h2>
+
+          <div class="grid lg:grid-cols-2 gap-12 items-start">
+            <div class="prose prose-lg">
+              <p class="text-gray-700 leading-relaxed mb-6">
+                La teoría del marcador somático, formulada por el neurocientífico portugués Antonio Damasio en la década de 1990, representa un <strong>cambio paradigmático</strong> en la comprensión de la relación entre emoción, cognición y toma de decisiones <a href="https://icaropsicologia.com/psicologos-expertos-madrid-articulos-psicologia/164-la-teoria-del-marcador-somatico-emociones-decisiones-y-aplicaciones-clinicas" class="citation" target="_blank">[436]</a>
+                <a href="https://www.alfredocalcedo.net/post/la-teoria-del-marcador-somatico-de-antonio-damasio" class="citation" target="_blank">[439]</a>.
+              </p>
+
+              <div class="quote-highlight">
+                &#34;Las emociones y las sensaciones corporales no son opuestas a la cognición racional, sino que constituyen un sustrato necesario para ella.&#34;
+              </div>
+
+              <p class="text-gray-700 leading-relaxed mb-6">
+                Antes de esta propuesta, los modelos clásicos de decisión tendían a concebir al ser humano como un <strong>agente racional puro</strong>, que evalúa opciones mediante cálculos lógicos de costos y beneficios, sin tener en cuenta la influencia de los estados emocionales <a href="https://www.alfredocalcedo.net/post/la-teoria-del-marcador-somatico-de-antonio-damasio" class="citation" target="_blank">[439]</a>.
+              </p>
+
+              <h3 class="serif text-2xl font-bold mb-4 text-gray-800">1.1 Definición y Concepto Central</h3>
+
+              <p class="text-gray-700 leading-relaxed">
+                Un <strong>marcador somático</strong> es una respuesta emocional corporal asociada a una situación específica <a href="https://icaropsicologia.com/psicologos-expertos-madrid-articulos-psicologia/164-la-teoria-del-marcador-somatico-emociones-decisiones-y-aplicaciones-clinicas" class="citation" target="_blank">[436]</a>. Estas respuestas, que pueden incluir cambios en la frecuencia cardíaca, sudoración, o tensión muscular, se forman a partir de experiencias pasadas y actúan como un <strong>mecanismo de atención</strong> que guía nuestras elecciones <a href="https://dialnet.unirioja.es/descarga/articulo/9893641.pdf" class="citation" target="_blank">[43]</a>.
+              </p>
+            </div>
+
+            <div class="space-y-6">
+              <div class="brain-circuit rounded-xl p-6 border border-gray-200">
+                <h4 class="serif text-xl font-bold mb-4 text-gray-800">Componentes Clave</h4>
+                <div class="space-y-4">
+                  <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+                      <i class="fas fa-heart text-red-600"></i>
+                    </div>
+                    <div>
+                      <h5 class="font-semibold text-gray-800">Respuestas Fisiológicas</h5>
+                      <p class="text-sm text-gray-600">Cambios corporales que guían la decisión</p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                      <i class="fas fa-memory text-blue-600"></i>
+                    </div>
+                    <div>
+                      <h5 class="font-semibold text-gray-800">Memoria Emocional</h5>
+                      <p class="text-sm text-gray-600">Aprendizaje de experiencias pasadas</p>
+                    </div>
+                  </div>
+
+                  <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                      <i class="fas fa-compass text-green-600"></i>
+                    </div>
+                    <div>
+                      <h5 class="font-semibold text-gray-800">Brújula Interna</h5>
+                      <p class="text-sm text-gray-600">Guía rápida y eficiente</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="insight-box rounded-xl p-6">
+                <h4 class="serif text-lg font-bold mb-3 text-gray-800">La Crítica a la Dicotomía</h4>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                  Damasio desafía la visión occidental tradicional que separaba razón de emoción. Su perspectiva integradora sugiere que <strong>la mente, el cuerpo y el entorno forman un conjunto indivisible</strong> en la génesis del comportamiento inteligente <a href="https://www.alfredocalcedo.net/post/la-teoria-del-marcador-somatico-de-antonio-damasio" class="citation" target="_blank">[439]</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Neurobiological Mechanism -->
+      <section id="mecanismo-neurobiologico" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-8">
+          <h2 class="serif text-4xl font-bold mb-8 text-center text-gray-800">2. El Mecanismo Neurobiológico</h2>
+
+          <div class="grid lg:grid-cols-2 gap-12 mb-12">
+            <div>
+              <h3 class="serif text-2xl font-bold mb-6 text-gray-800">2.1 El Cerebro como Sistema de Convergencia</h3>
+              <p class="text-gray-700 leading-relaxed mb-6">
+                Damasio propone que el cerebro actúa como un <strong>sistema de convergencia</strong> donde la información &#34;cognitiva&#34; se &#34;etiqueta&#34; con información &#34;emocional&#34; proveniente de áreas límbicas <a href="https://www.sciencedirect.com/topics/neuroscience/somatic-marker-hypothesis" class="citation" target="_blank">[387]</a>.
+              </p>
+
+              <div class="bg-blue-50 rounded-lg p-6 mb-6">
+                <h4 class="font-bold text-gray-800 mb-3">Corteza Prefrontal Ventromedial (vmPFC)</h4>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                  La vmPFC actúa como centro de convergencia crucial, recibiendo proyecciones de regiones que regulan respuestas corporales de las emociones <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3085837/" class="citation" target="_blank">[427]</a>.
+                </p>
+              </div>
+            </div>
+
+            <div class="decision-visual rounded-xl p-8 border border-gray-200">
+              <h4 class="serif text-xl font-bold mb-6 text-center text-gray-800">Circuito del Marcador Somático</h4>
+              <div class="space-y-6">
+                <div class="flex items-center justify-between">
+                  <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold mb-2">1</div>
+                    <h5 class="font-semibold text-sm text-gray-800">vmPFC</h5>
+                    <p class="text-xs text-gray-600">Integración</p>
+                  </div>
+                  <i class="fas fa-arrow-right text-gray-400"></i>
+                  <div class="text-center">
+                    <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center text-white font-bold mb-2">2</div>
+                    <h5 class="font-semibold text-sm text-gray-800">Amígdala</h5>
+                    <p class="text-xs text-gray-600">Valencia emocional</p>
+                  </div>
+                  <i class="fas fa-arrow-right text-gray-400"></i>
+                  <div class="text-center">
+                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mb-2">3</div>
+                    <h5 class="font-semibold text-sm text-gray-800">Ínsula</h5>
+                    <p class="text-xs text-gray-600">Conciencia</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="serif text-2xl font-bold mb-6 text-gray-800">2.2 Los Bucles Corporales</h3>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border border-blue-200">
+              <h4 class="serif text-lg font-bold mb-3 text-blue-800">
+                <i class="fas fa-sync-alt mr-2"></i>Bucle Corporal (Body Loop)
+              </h4>
+              <p class="text-gray-700 text-sm leading-relaxed mb-4">
+                Una situación emocionalmente relevante desencadena una respuesta fisiológica real en el cuerpo, que luego es enviada de vuelta al cerebro <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11972200/" class="citation" target="_blank">[391]</a>.
+              </p>
+              <div class="text-xs text-blue-600 bg-blue-200 rounded px-2 py-1 inline-block">
+                Proceso real y fisiológico
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 border border-green-200">
+              <h4 class="serif text-lg font-bold mb-3 text-green-800">
+                <i class="fas fa-ghost mr-2"></i>Bucle Como-Si (As-If)
+              </h4>
+              <p class="text-gray-700 text-sm leading-relaxed mb-4">
+                El cerebro activa directamente la representación del estado somático en áreas somatosensoriales, sin cambio fisiológico periférico real <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11972200/" class="citation" target="_blank">[391]</a>.
+              </p>
+              <div class="text-xs text-green-600 bg-green-200 rounded px-2 py-1 inline-block">
+                Simulación interna más rápida
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Empirical Evidence -->
+      <section id="evidencia-empirica" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-8">
+          <h2 class="serif text-4xl font-bold mb-8 text-center text-gray-800">3. Evidencia Empírica: La Tarea de Apuestas de Iowa</h2>
+
+          <div class="mb-12">
+            <div class="bg-white rounded-xl p-8 shadow-lg">
+              <h3 class="serif text-2xl font-bold mb-6 text-gray-800">3.1 La Tarea de Apuestas de Iowa (IGT)</h3>
+              <p class="text-gray-700 leading-relaxed mb-6">
+                La principal evidencia empírica que respalda la teoría del marcador somático proviene de estudios que utilizan la <strong>Tarea de Apuestas de Iowa (Iowa Gambling Task, IGT)</strong>
+                <a href="https://en.wikipedia.org/wiki/Somatic_marker_hypothesis" class="citation" target="_blank">[425]</a>. Esta tarea fue diseñada específicamente para evaluar los déficits en el procesamiento emocional y la toma de decisiones.
+              </p>
+
+              <div class="bg-yellow-50 rounded-lg p-6 border-l-4 border-yellow-400">
+                <h4 class="font-bold text-gray-800 mb-3">Mecánica de la IGT</h4>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                  Los participantes deben aprender a partir de la experiencia para maximizar ganancias y minimizar pérdidas, eligiendo entre mazos de cartas con diferentes patrones de recompensa y castigo <a href="https://en.wikipedia.org/wiki/Somatic_marker_hypothesis" class="citation" target="_blank">[425]</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-8">
+            <div class="bg-green-50 rounded-xl p-8 border border-green-200">
+              <h3 class="serif text-xl font-bold mb-4 text-green-800">
+                <i class="fas fa-check-circle mr-2"></i>Participantes Sanos
+              </h3>
+              <div class="space-y-4">
+                <div class="flex items-start space-x-3">
+                  <i class="fas fa-arrow-up text-green-600 mt-1"></i>
+                  <div>
+                    <h5 class="font-semibold text-gray-800">Aprendizaje Ventajoso</h5>
+                    <p class="text-sm text-gray-600">Desarrollan preferencia por mazos con recompensas pequeñas pero consistentes</p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <i class="fas fa-bolt text-green-600 mt-1"></i>
+                  <div>
+                    <h5 class="font-semibold text-gray-800">Proceso No Consciente</h5>
+                    <p class="text-sm text-gray-600">Aprenden antes de poder articular explícitamente la estrategia <a href="https://inserm.hal.science/inserm-00377238/file/Guillaume_Neuropsychologia_2009.pdf" class="citation" target="_blank">[403]</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-red-50 rounded-xl p-8 border border-red-200">
+              <h3 class="serif text-xl font-bold mb-4 text-red-800">
+                <i class="fas fa-exclamation-triangle mr-2"></i>Pacientes con Daño Cerebral
+              </h3>
+              <div class="space-y-4">
+                <div class="flex items-start space-x-3">
+                  <i class="fas fa-arrow-down text-red-600 mt-1"></i>
+                  <div>
+                    <h5 class="font-semibold text-gray-800">CI Preservado</h5>
+                    <p class="text-sm text-gray-600">Capacidades cognitivas intactas pero toma de decisiones deficiente <a href="https://www.sciencedirect.com/topics/neuroscience/somatic-marker-hypothesis" class="citation" target="_blank">[387]</a>
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <i class="fas fa-ban text-red-600 mt-1"></i>
+                  <div>
+                    <h5 class="font-semibold text-gray-800">Incapacidad de Aprendizaje</h5>
+                    <p class="text-sm text-gray-600">Persisten en mazos desfavorables a pesar de pérdidas netas <a href="https://en.wikipedia.org/wiki/Somatic_marker_hypothesis" class="citation" target="_blank">[425]</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-12">
+            <div class="bg-blue-50 rounded-xl p-8 border border-blue-200">
+              <h3 class="serif text-2xl font-bold mb-6 text-blue-800">3.2 Señales Fisiológicas Anticipatorias</h3>
+              <div class="grid md:grid-cols-3 gap-6">
+                <div class="text-center">
+                  <div class="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">SCR</div>
+                  <h4 class="font-semibold text-gray-800 mb-2">Respuesta de Conductancia</h4>
+                  <p class="text-sm text-gray-600">Aumento en sudoración antes de seleccionar carta desfavorable</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-20 h-20 bg-red-500 rounded-full flex items-center justify-center text-white text-lg font-bold mx-auto mb-4">ANTES</div>
+                  <h4 class="font-semibold text-gray-800 mb-2">Advertencia Temprana</h4>
+                  <p class="text-sm text-gray-600">Señal anticipatoria que previene malas decisiones</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-20 h-20 bg-gray-400 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">X</div>
+                  <h4 class="font-semibold text-gray-800 mb-2">Ausencia en Pacientes</h4>
+                  <p class="text-sm text-gray-600">Pacientes con daño vmPFC no muestran SCRs anticipatorias <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4307614/" class="citation" target="_blank">[397]</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Intelligence Section -->
+      <section id="inteligencia-cognitiva-emocional" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-8">
+          <h2 class="serif text-4xl font-bold mb-8 text-center text-gray-800">4. Relación con la Inteligencia Cognitiva y Emocional</h2>
+
+          <div class="mb-12">
+            <p class="text-gray-700 leading-relaxed text-lg mb-8">
+              La teoría del marcador somático tiene implicaciones profundas para la comprensión de la inteligencia humana, particularmente en la distinción entre <strong>inteligencia cognitiva (CI)</strong> e <strong>inteligencia emocional (EI)</strong>. La evidencia empírica sugiere que los circuitos neuronales que sustentan los marcadores somáticos están estrechamente vinculados con la EI, pero son relativamente independientes de las capacidades que definen la CI tradicional.
+            </p>
+          </div>
+
+          <div class="grid lg:grid-cols-2 gap-12 mb-12">
+            <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 border border-blue-200">
+              <h3 class="serif text-2xl font-bold mb-6 text-blue-800">
+                <i class="fas fa-brain mr-3"></i>Inteligencia Cognitiva (CI)
+              </h3>
+              <div class="space-y-4">
+                <div class="bg-white rounded-lg p-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Definición</h4>
+                  <p class="text-sm text-gray-600 leading-relaxed">
+                    Capacidades mentales tradicionales: razonamiento lógico-matemático, comprensión verbal, memoria de trabajo <a href="https://www.eiconsortium.org/pdf/an_ei_based_theory_of_performance.pdf" class="citation" target="_blank">[406]</a>.
+                  </p>
+                </div>
+                <div class="bg-white rounded-lg p-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Áreas Cerebrales</h4>
+                  <p class="text-sm text-gray-600 leading-relaxed">
+                    Neocorteza, lóbulo frontal y parietal. Sistema de procesamiento &#34;frío&#34; y analítico.
+                  </p>
+                </div>
+                <div class="bg-white rounded-lg p-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Preservación en Pacientes</h4>
+                  <p class="text-sm text-gray-600 leading-relaxed">
+                    Pacientes con daño vmPFC mantienen CI intacta y coeficiente intelectual normal <a href="https://www.sciencedirect.com/topics/neuroscience/somatic-marker-hypothesis" class="citation" target="_blank">[387]</a>
+                    <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3085837/" class="citation" target="_blank">[427]</a>.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-8 border border-green-200">
+              <h3 class="serif text-2xl font-bold mb-6 text-green-800">
+                <i class="fas fa-heart mr-3"></i>Inteligencia Emocional (EI)
+              </h3>
+              <div class="space-y-4">
+                <div class="bg-white rounded-lg p-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Definición</h4>
+                  <p class="text-sm text-gray-600 leading-relaxed">
+                    Capacidad de monitorizar y regular sentimientos propios y ajenos, utilizando esa información para guiar el pensamiento y la acción <a href="https://neuropsychiatricinvestigation.org/public/pdfs/393/117-121.pdf" class="citation" target="_blank">[26]</a>.
+                  </p>
+                </div>
+                <div class="bg-white rounded-lg p-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Áreas Cerebrales</h4>
+                  <p class="text-sm text-gray-600 leading-relaxed">
+                    Sistema límbico (amígdala) conectado con regiones prefrontales. Circuito del marcador somático <a href="https://www.eiconsortium.org/pdf/an_ei_based_theory_of_performance.pdf" class="citation" target="_blank">[406]</a>.
+                  </p>
+                </div>
+                <div class="bg-white rounded-lg p-4">
+                  <h4 class="font-semibold text-gray-800 mb-2">Deterioro en Pacientes</h4>
+                  <p class="text-sm text-gray-600 leading-relaxed">
+                    Daño en vmPFC produce deterioro marcado en múltiples facetas de la EI, a pesar de CI preservada.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gray-100 rounded-xl p-8 mb-12">
+            <h3 class="serif text-2xl font-bold mb-6 text-center text-gray-800">4.1 La Disociación entre CI y EI</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+              <div class="text-center">
+                <div class="w-24 h-24 bg-blue-500 rounded-full flex items-center justify-center text-white text-3xl font-bold mx-auto mb-4">CI</div>
+                <h4 class="serif text-xl font-bold mb-2 text-gray-800">Intacta</h4>
+                <p class="text-gray-600">Razonamiento lógico, memoria, atención sostenida</p>
+              </div>
+              <div class="text-center">
+                <div class="w-24 h-24 bg-red-500 rounded-full flex items-center justify-center text-white text-3xl font-bold mx-auto mb-4">EI</div>
+                <h4 class="serif text-xl font-bold mb-2 text-gray-800">Comprometida</h4>
+                <p class="text-gray-600">Empatía, regulación emocional, juicio social</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="insight-box rounded-xl p-8">
+            <h3 class="serif text-xl font-bold mb-4 text-gray-800">4.2 Implicaciones de la Disociación</h3>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              La disociación entre CI y EI en pacientes con daño vmPFC proporciona una poderosa refutación a la idea de que la inteligencia es un constructo unitario. La teoría del marcador somático sugiere que el cerebro alberga <strong>sistemas de procesamiento paralelos</strong>.
+            </p>
+            <div class="bg-white rounded-lg p-4">
+              <p class="text-gray-700 text-sm leading-relaxed">
+                <strong>Conclusión clave:</strong> Tener una alta CI no garantiza una buena toma de decisiones en contextos personales, sociales o morales. La EI es una forma de inteligencia distinta y esencial para una vida adaptativa y exitosa.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Practical Applications -->
+      <section id="aplicaciones-practicas" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-8">
+          <h2 class="serif text-4xl font-bold mb-8 text-center text-gray-800">5. Implicaciones Prácticas de la Teoría</h2>
+
+          <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-12">
+            <!-- Technology &amp; AI -->
+            <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+              <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                <i class="fas fa-robot text-2xl text-purple-600"></i>
+              </div>
+              <h3 class="serif text-xl font-bold mb-4 text-gray-800">Tecnología e IA</h3>
+              <div class="space-y-3 text-sm text-gray-600">
+                <div class="flex items-start space-x-2">
+                  <i class="fas fa-check text-green-500 mt-1 flex-shrink-0"></i>
+                  <p>Desarrollo de sistemas autónomos &#34;humanamente inteligentes&#34;</p>
+                </div>
+                <div class="flex items-start space-x-2">
+                  <i class="fas fa-check text-green-500 mt-1 flex-shrink-0"></i>
+                  <p>Computación afectiva para reconocer emociones humanas</p>
+                </div>
+                <div class="flex items-start space-x-2">
+                  <i class="fas fa-check text-green-500 mt-1 flex-shrink-0"></i>
+                  <p>IA con marcadores artificiales para evaluación rápida</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Clinical Psychology -->
+            <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+              <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                <i class="fas fa-user-md text-2xl text-blue-600"></i>
+              </div>
+              <h3 class="serif text-xl font-bold mb-4 text-gray-800">Psicología Clínica</h3>
+              <div class="space-y-3 text-sm text-gray-600">
+                <div class="flex items-start space-x-2">
+                  <i class="fas fa-check text-green-500 mt-1 flex-shrink-0"></i>
+                  <p>Comprensión de déficits en trastornos psiquiátricos</p>
+                </div>
+                <div class="flex items-start space-x-2">
+                  <i class="fas fa-check text-green-500 mt-1 flex-shrink-0"></i>
+                  <p>Intervenciones para pacientes con lesiones cerebrales</p>
+                </div>
+                <div class="flex items-start space-x-2">
+                  <i class="fas fa-check text-green-500 mt-1 flex-shrink-0"></i>
+                  <p>Terapias de rehabilitación basadas en reglas externas</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Marketing -->
+            <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+              <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                <i class="fas fa-shopping-cart text-2xl text-green-600"></i>
+              </div>
+              <h3 class="serif text-xl font-bold mb-4 text-gray-800">Marketing</h3>
+              <div class="space-y-3 text-sm text-gray-600">
+                <div class="flex items-start space-x-2">
+                  <i class="fas fa-check text-green-500 mt-1 flex-shrink-0"></i>
+                  <p>Creación de conexiones emocionales con marcas</p>
+                </div>
+                <div class="flex items-start space-x-2">
+                  <i class="fas fa-check text-green-500 mt-1 flex-shrink-0"></i>
+                  <p>Diseño de experiencias que generan marcadores positivos</p>
+                </div>
+                <div class="flex items-start space-x-2">
+                  <i class="fas fa-check text-green-500 mt-1 flex-shrink-0"></i>
+                  <p>Influencia en decisiones de compra a través de emociones</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Education -->
+            <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+              <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
+                <i class="fas fa-graduation-cap text-2xl text-yellow-600"></i>
+              </div>
+              <h3 class="serif text-xl font-bold mb-4 text-gray-800">Educación</h3>
+              <div class="space-y-3 text-sm text-gray-600">
+                <div class="flex items-start space-x-2">
+                  <i class="fas fa-check text-green-500 mt-1 flex-shrink-0"></i>
+                  <p>Uso de marcadores somáticos en resolución de problemas</p>
+                </div>
+                <div class="flex items-start space-x-2">
+                  <i class="fas fa-check text-green-500 mt-1 flex-shrink-0"></i>
+                  <p>Aprendizaje experiencial para desarrollar intuición</p>
+                </div>
+                <div class="flex items-start space-x-2">
+                  <i class="fas fa-check text-green-500 mt-1 flex-shrink-0"></i>
+                  <p>Programas de educación emocional en currículos</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sustainability -->
+            <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+              <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mb-6">
+                <i class="fas fa-leaf text-2xl text-emerald-600"></i>
+              </div>
+              <h3 class="serif text-xl font-bold mb-4 text-gray-800">Sostenibilidad</h3>
+              <div class="space-y-3 text-sm text-gray-600">
+                <div class="flex items-start space-x-2">
+                  <i class="fas fa-check text-green-500 mt-1 flex-shrink-0"></i>
+                  <p>Promoción de acciones eco-amigables</p>
+                </div>
+                <div class="flex items-start space-x-2">
+                  <i class="fas fa-check text-green-500 mt-1 flex-shrink-0"></i>
+                  <p>Superación de la &#34;tasa de descuento somática&#34;</p>
+                </div>
+                <div class="flex items-start space-x-2">
+                  <i class="fas fa-check text-green-500 mt-1 flex-shrink-0"></i>
+                  <p>Creación de marcadores positivos para comportamientos sostenibles</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Decision Making -->
+            <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+              <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6">
+                <i class="fas fa-balance-scale text-2xl text-orange-600"></i>
+              </div>
+              <h3 class="serif text-xl font-bold mb-4 text-gray-800">Toma de Decisiones</h3>
+              <div class="space-y-3 text-sm text-gray-600">
+                <div class="flex items-start space-x-2">
+                  <i class="fas fa-check text-green-500 mt-1 flex-shrink-0"></i>
+                  <p>Optimización de procesos decisionales complejos</p>
+                </div>
+                <div class="flex items-start space-x-2">
+                  <i class="fas fa-check text-green-500 mt-1 flex-shrink-0"></i>
+                  <p>Reducción de la carga cognitiva</p>
+                </div>
+                <div class="flex items-start space-x-2">
+                  <i class="fas fa-check text-green-500 mt-1 flex-shrink-0"></i>
+                  <p>Mejora de la precisión en contextos inciertos</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-8 border border-blue-200">
+            <h3 class="serif text-2xl font-bold mb-6 text-center text-gray-800">5.1 Caso Destacado: Marketing y Marcadores de Marca</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+              <div>
+                <h4 class="font-bold text-gray-800 mb-4">Creación de Conexiones Emocionales</h4>
+                <p class="text-gray-700 text-sm leading-relaxed mb-4">
+                  Las marcas exitosas crean marcadores somáticos positivos asociando productos con sentimientos de alegría, seguridad o pertenencia. Esto explica por qué los consumidores a menudo eligen marcas que &#34;se sienten&#34; mejor, incluso con opciones técnicamente superiores disponibles.
+                </p>
+                <div class="bg-white rounded-lg p-4">
+                  <h5 class="font-semibold text-gray-800 mb-2">Mecanismo:</h5>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    <li>• Publicidad que genera emociones positivas</li>
+                    <li>• Diseño que activa respuestas fisiológicas favorables</li>
+                    <li>• Experiencias de usuario que crean &#34;marca en el corazón&#34;</li>
+                  </ul>
+                </div>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-800 mb-4">Influencia en Decisiones de Compra</h4>
+                <p class="text-gray-700 text-sm leading-relaxed mb-4">
+                  El color de un paquete, la música en una tienda o el olor de un producto pueden activar respuestas fisiológicas sutilmente positivas que influyen en la percepción del consumidor.
+                </p>
+                <div class="bg-yellow-50 rounded-lg p-4 border border-yellow-200">
+                  <h5 class="font-semibold text-yellow-800 mb-2">El &#34;correcto&#34; intuitivo</h5>
+                  <p class="text-sm text-yellow-700">
+                    La &#34;intuición&#34; de que un producto es el adecuado es a menudo la manifestación consciente de un marcador somático cuidadosamente cultivado por la estrategia de marca.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Conclusions -->
+      <section id="conclusiones" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-8">
+          <h2 class="serif text-4xl font-bold mb-8 text-center text-gray-800">6. Conclusiones y Perspectivas Futuras</h2>
+
+          <div class="grid lg:grid-cols-2 gap-12 mb-12">
+            <div>
+              <h3 class="serif text-2xl font-bold mb-6 text-gray-800">6.1 Impacto Revolucionario</h3>
+              <p class="text-gray-700 leading-relaxed mb-6">
+                La teoría del marcador somático de Antonio Damasio representa una <strong>revolución paradigmática</strong> en nuestra comprensión de la mente humana. Al demostrar que las emociones y las señales corporales son fundamentales para la toma de decisiones racionales, esta teoría ha desafiado siglos de separación entre mente y cuerpo.
+              </p>
+
+              <div class="bg-blue-50 rounded-lg p-6 mb-6">
+                <h4 class="font-bold text-blue-800 mb-3">Logros Clave</h4>
+                <ul class="text-sm text-blue-700 space-y-2">
+                  <li class="flex items-start space-x-2">
+                    <i class="fas fa-check text-blue-600 mt-1"></i>
+                    <span>Identificación del circuito neural vmPFC-amígdala-ínsula</span>
+                  </li>
+                  <li class="flex items-start space-x-2">
+                    <i class="fas fa-check text-blue-600 mt-1"></i>
+                    <span>Demostración de la disociación entre CI y EI</span>
+                  </li>
+                  <li class="flex items-start space-x-2">
+                    <i class="fas fa-check text-blue-600 mt-1"></i>
+                    <span>Fundamento neurobiológico para la inteligencia emocional</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="serif text-2xl font-bold mb-6 text-gray-800">6.2 Aplicaciones Transformadoras</h3>
+              <p class="text-gray-700 leading-relaxed mb-6">
+                Las implicaciones prácticas de la teoría abarcan desde el desarrollo de IA más humana hasta la mejora de intervenciones clínicas y la promoción de comportamientos sostenibles. Esta perspectiva integradora ofrece nuevas estrategias para abordar desafíos complejos en múltiples campos.
+              </p>
+
+              <div class="bg-green-50 rounded-lg p-6">
+                <h4 class="font-bold text-green-800 mb-3">Áreas de Aplicación</h4>
+                <div class="grid grid-cols-2 gap-4 text-sm text-green-700">
+                  <div>
+                    <i class="fas fa-robot mr-2"></i>Inteligencia Artificial
+                  </div>
+                  <div>
+                    <i class="fas fa-user-md mr-2"></i>Psicología Clínica
+                  </div>
+                  <div>
+                    <i class="fas fa-shopping-cart mr-2"></i>Marketing
+                  </div>
+                  <div>
+                    <i class="fas fa-graduation-cap mr-2"></i>Educación
+                  </div>
+                  <div>
+                    <i class="fas fa-leaf mr-2"></i>Sostenibilidad
+                  </div>
+                  <div>
+                    <i class="fas fa-chart-line mr-2"></i>Decisiones Estratégicas
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-8 mb-12">
+            <h3 class="serif text-2xl font-bold mb-6 text-center text-gray-800">6.3 El Futuro de la Investigación</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+              <div class="text-center">
+                <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <i class="fas fa-microscope text-2xl text-purple-600"></i>
+                </div>
+                <h4 class="font-bold text-gray-800 mb-2">Neuroimagen</h4>
+                <p class="text-sm text-gray-600">Estudios más detallados del circuito del marcador somático en tiempo real</p>
+              </div>
+              <div class="text-center">
+                <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <i class="fas fa-dna text-2xl text-pink-600"></i>
+                </div>
+                <h4 class="font-bold text-gray-800 mb-2">Genética</h4>
+                <p class="text-sm text-gray-600">Investigación de factores genéticos que influyen en la eficacia de los marcadores somáticos</p>
+              </div>
+              <div class="text-center">
+                <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <i class="fas fa-globe text-2xl text-indigo-600"></i>
+                </div>
+                <h4 class="font-bold text-gray-800 mb-2">Cultura</h4>
+                <p class="text-sm text-gray-600">Estudio de cómo los marcadores somáticos varían entre diferentes culturas y contextos sociales</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <div class="quote-highlight text-center text-xl">
+              &#34;La sabiduría de nuestras decisiones emerge tanto de la lucidez de la mente como de la voz silenciosa del cuerpo.&#34;
+            </div>
+            <p class="text-gray-600 mt-4">- Antonio Damasio</p>
+          </div>
+
+          <div class="mt-12 bg-gray-100 rounded-xl p-8">
+            <h3 class="serif text-xl font-bold mb-4 text-center text-gray-800">Referencias y Lecturas Recomendadas</h3>
+            <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-600">
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">Publicaciones Clave:</h4>
+                <ul class="space-y-1">
+                  <li>• Damasio, A. R. (1994). Descartes&#39; Error</li>
+                  <li>• Bechara, A., et al. (1994). Iowa Gambling Task</li>
+                  <li>• Cambridge Handbook of Intelligence</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">Recursos Online:</h4>
+                <ul class="space-y-1">
+                  <li>• Somatic Marker Hypothesis - Wikipedia</li>
+                  <li>• Neuroscience of Decision Making - NIH</li>
+                  <li>• Emotional Intelligence Consortium</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-8 text-center">
+          <p class="text-gray-400 mb-4">
+            Esta publicación explora la teoría revolucionaria de Antonio Damasio y sus implicaciones para la comprensión de la mente humana.
+          </p>
+          <div class="flex justify-center space-x-6 text-sm text-gray-500">
+            <span>Neurociencia Cognitiva</span>
+            <span>•</span>
+            <span>Psicología</span>
+            <span>•</span>
+            <span>Toma de Decisiones</span>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Highlight active section in TOC
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.toc-fixed a[href^="#"]');
+
+        function highlightActiveSection() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-blue-800', 'font-semibold');
+                link.classList.add('text-gray-600');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.remove('text-gray-600');
+                    link.classList.add('text-blue-800', 'font-semibold');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', highlightActiveSection);
+        highlightActiveSection(); // Initial call
+    </script>
+  
+
+</body></html>
