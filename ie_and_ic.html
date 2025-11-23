@@ -1,0 +1,632 @@
+<!DOCTYPE html><html lang="es"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>La Influencia de la Inteligencia Cognitiva en la Inteligencia Emocional</title>
+    <script src="https://cdn.tailwindcss.com/3.4.0"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tiempos+Headline:wght@400;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <style>
+        :root {
+            --emerald: #065f46;
+            --emerald-light: #10b981;
+            --emerald-dark: #064e3b;
+            --gold: #f59e0b;
+            --gold-light: #fbbf24;
+            --slate: #64748b;
+            --slate-light: #94a3b8;
+            --slate-dark: #334155;
+        }
+        
+        .font-tiempos { font-family: 'Tiempos Headline', serif; }
+        .font-inter { font-family: 'Inter', sans-serif; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--slate-dark);
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            min-height: 50vh;
+        }
+        
+        .toc-fixed {
+            position: fixed;
+            left: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 280px;
+            max-height: 70vh;
+            overflow-y: auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        .content-main {
+            margin-left: 320px;
+            padding: 2rem;
+        }
+        
+        .bento-card {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(5px);
+        }
+        
+        .citation-link {
+            color: var(--emerald);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px dotted var(--emerald);
+            transition: all 0.3s ease;
+        }
+        
+        .citation-link:hover {
+            color: var(--emerald-dark);
+            border-bottom-style: solid;
+        }
+        
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, var(--emerald) 0%, var(--gold) 100%);
+            margin: 4rem 0;
+            border-radius: 1px;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(245, 158, 11, 0.03) 100%);
+            border-left: 4px solid var(--emerald);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        @media (max-width: 1280px) {
+            .toc-fixed {
+                display: none;
+            }
+            .content-main {
+                margin-left: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                min-height: auto;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+                line-height: 1.2;
+            }
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            .bento-card {
+                padding: 1.5rem;
+            }
+            .content-main {
+                padding: 1rem;
+            }
+        }
+        
+    .chart-container {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 2rem 0;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(6, 95, 70, 0.8) 0%, rgba(6, 78, 59, 0.6) 100%);
+        z-index: 1;
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 2;
+    }
+    
+    .staggered-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+    
+    @media (max-width: 768px) {
+        .staggered-layout {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+  <base target="_blank">
+</head>
+
+  <body>
+    <!-- Fixed Table of Contents -->
+    <nav class="toc-fixed">
+      <h3 class="font-tiempos text-lg font-bold text-emerald-800 mb-4">Índice</h3>
+      <ul class="space-y-2 text-sm">
+        <li>
+          <a href="#introduccion" class="citation-link block py-1">Introducción</a>
+        </li>
+        <li>
+          <a href="#teoria-spearman" class="citation-link block py-1">Teoría de Spearman</a>
+        </li>
+        <li>
+          <a href="#modelo-chc" class="citation-link block py-1">Modelo CHC</a>
+        </li>
+        <li>
+          <a href="#modelo-mayer-salovey" class="citation-link block py-1">Modelo Mayer-Salovey</a>
+        </li>
+        <li>
+          <a href="#evidencia-empirica" class="citation-link block py-1">Evidencia Empírica</a>
+        </li>
+        <li>
+          <a href="#implicaciones-practicas" class="citation-link block py-1">Implicaciones Prácticas</a>
+        </li>
+        <li>
+          <a href="#conclusiones" class="citation-link block py-1">Conclusiones</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="content-main">
+      <!-- Hero Section with Bento Grid -->
+      <section class="relative mb-16">
+        <div class="hero-grid">
+          <div class="bento-card hero-content">
+            <h1 class="font-tiempos text-5xl font-bold text-emerald-900 mb-6 leading-tight hero-title">
+              <em>La Influencia de la Inteligencia Cognitiva</em>
+              <br/>
+              <span class="text-amber-600">en la Inteligencia Emocional</span>
+            </h1>
+            <p class="text-xl text-slate-600 mb-8 leading-relaxed hero-subtitle">
+              Un análisis integrador de las teorías de Spearman y Mayer-Salovey
+            </p>
+            <div class="flex items-center space-x-4 text-sm text-slate-500">
+              <span class="flex items-center">
+                <i class="fas fa-brain mr-2 text-emerald-600"></i>
+                Psicología Cognitiva
+              </span>
+              <span class="flex items-center">
+                <i class="fas fa-heart mr-2 text-amber-600"></i>
+                Inteligencia Emocional
+              </span>
+            </div>
+          </div>
+
+          <div class="bento-card">
+            <img src="https://kimi-web-img.moonshot.cn/img/i0.wp.com/407db9ef2e70872a78cf2e92d5c1ba987576ef70.webp" alt="Abstract neural network representing cognitive and emotional intelligence integration" class="w-full h-48 object-cover rounded-lg mb-4" size="medium" aspect="wide" query="abstract neural network emotional cognitive intelligence" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+            <h3 class="font-tiempos text-lg font-bold text-emerald-800 mb-2">Conexión Cognitiva-Emocional</h3>
+            <p class="text-sm text-slate-600">
+              La inteligencia general (factor &#39;g&#39;) influye significativamente en la capacidad para procesar información emocional
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Highlights -->
+      <section id="introduccion" class="mb-16">
+        <h2 class="font-tiempos text-3xl font-bold text-emerald-900 mb-8">Introducción y Resumen Ejecutivo</h2>
+
+        <div class="highlight-box">
+          <p class="text-lg leading-relaxed">
+            La <strong>inteligencia cognitiva general</strong>, conceptualizada por Spearman como el factor &#39;g&#39;, influye significativamente en la <strong>inteligencia emocional (EI)</strong> entendida como una habilidad, según el modelo de Mayer y Salovey. Esta influencia se manifiesta principalmente a través de la <strong>inteligencia cristalizada (Gc)</strong>, el conocimiento acumulado sobre el mundo emocional, que es crucial para las habilidades de comprensión y gestión de emociones.
+          </p>
+        </div>
+
+        <div class="staggered-layout mt-12">
+          <div class="bento-card">
+            <h3 class="font-tiempos text-xl font-bold text-emerald-800 mb-4">La Jerarquía Intelectual</h3>
+            <p class="text-slate-700 mb-4">
+              El modelo Cattell-Horn-Carroll (CHC) proporciona el marco estructural para entender cómo la inteligencia general se ramifica en habilidades específicas, incluyendo la procesamiento emocional.
+            </p>
+            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8544294/" class="citation-link text-sm">
+              <i class="fas fa-external-link-alt mr-1"></i>
+              Investigación CHC
+            </a>
+          </div>
+
+          <div class="bento-card">
+            <h3 class="font-tiempos text-xl font-bold text-amber-700 mb-4">EI como Habilidad Legítima</h3>
+            <p class="text-slate-700 mb-4">
+              Contrario a los modelos basados en rasgos, la EI de Mayer-Salovey se mide a través de desempeño en tareas, demostrando su validez como capacidad mental genuina.
+            </p>
+            <a href="https://eqpower.ch/wp-content/uploads/2023/02/2016_Mayer_Caruso_Salovey.pdf" class="citation-link text-sm">
+              <i class="fas fa-external-link-alt mr-1"></i>
+              Modelo de Habilidades
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Section 1: Cognitive Intelligence Foundation -->
+      <section id="teoria-spearman" class="mb-16">
+        <h2 class="font-tiempos text-3xl font-bold text-emerald-900 mb-8">1. La Conexión Fundamental: Inteligencia General (g) y la Jerarquía de las Habilidades Mentales</h2>
+
+        <p class="text-lg mb-8 leading-relaxed">
+          La comprensión de la inteligencia humana ha sido un tema central en la psicología durante más de un siglo, evolucionando desde modelos unidimensionales hacia marcos teóricos más complejos y jerárquicos. La teoría original de Charles Spearman sobre la inteligencia general, o factor &#39;g&#39;, sentó las bases para esta exploración <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5981239/" class="citation-link">[473]</a>
+          <a href="https://www.simplypsychology.org/intelligence.html" class="citation-link">[499]</a>.
+        </p>
+
+        <div class="bento-card mb-8">
+          <h3 class="font-tiempos text-2xl font-bold text-emerald-800 mb-6">1.1 La Teoría de Spearman: El Factor &#39;g&#39; como Piedra Angular</h3>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h4 class="font-bold text-emerald-700 mb-3">Definición del Factor &#39;g&#39;</h4>
+              <p class="text-slate-700 mb-4">
+                El factor &#39;g&#39; es conceptualizado como una capacidad mental subyacente que influye de manera universal en el rendimiento en todas las tareas que requieren procesamiento cognitivo <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5981239/" class="citation-link">[473]</a>
+                <a href="https://www.cogn-iq.org/blog/spearmans-two-factor-theory-g-and-s/" class="citation-link">[498]</a>.
+              </p>
+            </div>
+
+            <div>
+              <h4 class="font-bold text-emerald-700 mb-3">Ley del Manifold Positivo</h4>
+              <p class="text-slate-700 mb-4">
+                Este principio establece que todas las medidas de inteligencia tienden a correlacionarse positivamente entre sí, reflejando la influencia universal del factor &#39;g&#39; <a href="https://files.eric.ed.gov/fulltext/EJ1313156.pdf" class="citation-link">[512]</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <img src="https://kimi-web-img.moonshot.cn/img/qks.sufe.edu.cn/f6c5ae3a51c90d0cbd38b93b48e8ba69ccb69140.jpg" alt="Illustration showing hierarchical structure of intelligence with factor g at the top" class="w-full h-64 object-cover rounded-lg mb-8" size="medium" aspect="wide" style="linedrawing" query="hierarchical intelligence model factor g" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Section 2: CHC Model -->
+      <section id="modelo-chc" class="mb-16">
+        <h2 class="font-tiempos text-3xl font-bold text-emerald-900 mb-8">2. El Modelo Cattell-Horn-Carroll (CHC): Un Marco Integrador</h2>
+
+        <p class="text-lg mb-8 leading-relaxed">
+          El modelo Cattell-Horn-Carroll (CHC) representa la culminación de más de siete décadas de investigación psicométrica y se ha consolidado como la teoría más ampliamente aceptada sobre la estructura de las habilidades mentales <a href="https://www.mdpi.com/2079-3200/8/2/18" class="citation-link">[484]</a>
+          <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7713006/" class="citation-link">[510]</a>.
+        </p>
+
+        <div class="staggered-layout">
+          <div class="bento-card">
+            <h3 class="font-tiempos text-xl font-bold text-emerald-800 mb-4">Integración de la EI en CHC</h3>
+            <p class="text-slate-700 mb-4">
+              Investigaciones estructurales exhaustivas han demostrado que la EI, medida a través del MSCEIT, puede ser conceptualizada como un <strong>factor de segundo estrato</strong>, similar a Gf o Gc <a href="https://www.mdpi.com/2079-3200/8/2/18" class="citation-link">[484]</a>.
+            </p>
+            <div class="bg-emerald-50 p-4 rounded-lg">
+              <p class="text-sm text-emerald-800">
+                <i class="fas fa-lightbulb mr-2"></i>
+                Esto sugiere que la EI no es una entidad aislada, sino un dominio de habilidad distinto y legítimo dentro de la jerarquía intelectual.
+              </p>
+            </div>
+          </div>
+
+          <div class="bento-card">
+            <h3 class="font-tiempos text-xl font-bold text-amber-700 mb-4">Gf vs. Gc en Procesamiento Emocional</h3>
+            <div class="space-y-3">
+              <div class="flex items-start space-x-3">
+                <div class="w-3 h-3 bg-emerald-500 rounded-full mt-2"></div>
+                <div>
+                  <strong class="text-emerald-800">Inteligencia Fluida (Gf):</strong>
+                  <p class="text-sm text-slate-600">Procesamiento emocional en tiempo real, resolución de problemas novedosos</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <div class="w-3 h-3 bg-amber-500 rounded-full mt-2"></div>
+                <div>
+                  <strong class="text-amber-800">Inteligencia Cristalizada (Gc):</strong>
+                  <p class="text-sm text-slate-600">Conocimiento acumulado sobre emociones, normas sociales, estrategias de afrontamiento</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Section 3: Mayer-Salovey Model -->
+      <section id="modelo-mayer-salovey" class="mb-16">
+        <h2 class="font-tiempos text-3xl font-bold text-emerald-900 mb-8">3. La Inteligencia Emocional como Habilidad: El Modelo de Mayer y Salovey</h2>
+
+        <p class="text-lg mb-8 leading-relaxed">
+          En un campo a menudo dominado por definiciones difusas y medidas basadas en auto-percepción, el modelo de habilidades de inteligencia emocional desarrollado por Peter Salovey y John Mayer se distingue por su rigor conceptual y su compromiso con los estándares científicos tradicionales <a href="https://books.google.com/books/about/Emotional_Intelligence.html?hl=zh-CN&amp;id=YVKmxr_D7yQC" class="citation-link">[480]</a>
+          <a href="https://www.salzburgglobal.org/fileadmin/user_upload/Documents/2010-2019/2018/Session_603/Brackett_et_al.__2016__Handbook_of_Emotion.pdf" class="citation-link">[529]</a>.
+        </p>
+
+        <div class="bento-card mb-8">
+          <h3 class="font-tiempos text-2xl font-bold text-emerald-800 mb-6">Las Cuatro Ramas de la Inteligencia Emocional</h3>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="border-l-4 border-emerald-500 pl-4">
+              <h4 class="font-bold text-emerald-700 mb-2">1. Percepción de Emociones</h4>
+              <p class="text-sm text-slate-600 mb-3">
+                Capacidad para identificar y decodificar señales emocionales en expresiones faciales, tono de voz y lenguaje corporal <a href="https://en.wikipedia.org/wiki/Emotional_intelligence" class="citation-link">[49]</a>.
+              </p>
+            </div>
+
+            <div class="border-l-4 border-emerald-500 pl-4">
+              <h4 class="font-bold text-emerald-700 mb-2">2. Facilitación del Pensamiento</h4>
+              <p class="text-sm text-slate-600 mb-3">
+                Uso de emociones para dirigir la atención, priorizar información y potenciar ciertos tipos de razonamiento <a href="https://center.uoregon.edu/StartingStrong/uploads/STARTINGSTRONG2016/HANDOUTS/KEY_46201/pub153_SaloveyMayerICP1990_OCR.pdf" class="citation-link">[51]</a>.
+              </p>
+            </div>
+
+            <div class="border-l-4 border-amber-500 pl-4">
+              <h4 class="font-bold text-amber-700 mb-2">3. Comprensión de Emociones</h4>
+              <p class="text-sm text-slate-600 mb-3">
+                Análisis del lenguaje emocional, relaciones entre emociones y sus causas. <strong>Fuertemente relacionada con Gc</strong>
+                <a href="https://www.sciencedirect.com/science/article/abs/pii/S1041608011001579" class="citation-link">[38]</a>.
+              </p>
+            </div>
+
+            <div class="border-l-4 border-amber-500 pl-4">
+              <h4 class="font-bold text-amber-700 mb-2">4. Gestión de Emociones</h4>
+              <p class="text-sm text-slate-600 mb-3">
+                Regulación consciente de emociones para alcanzar metas, manejar estrés y promover crecimiento personal <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5981239/" class="citation-link">[1]</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <h3 class="font-tiempos text-xl font-bold text-emerald-800 mb-4">El MSCEIT: Estándar de Oro para Medición</h3>
+          <p class="text-slate-700 mb-4">
+            El <strong>Mayer-Salovey-Caruso Emotional Intelligence Test (MSCEIT)</strong> evalúa la capacidad de una persona para resolver problemas relacionados con las emociones a través de ocho tareas, dos para cada rama del modelo <a href="https://www.psicothema.com/pdf/3285.pdf?utm_source" class="citation-link">[533]</a>.
+          </p>
+          <p class="text-sm text-slate-600">
+            Las respuestas se puntúan comparándolas con consensos de expertos o muestras generales, reflejando el conocimiento compartido y culturalmente relevante sobre emociones.
+          </p>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Section 4: Empirical Evidence -->
+      <section id="evidencia-empirica" class="mb-16">
+        <h2 class="font-tiempos text-3xl font-bold text-emerald-900 mb-8">4. Evidencia Empírica de la Influencia de la Inteligencia Cognitiva sobre la EI</h2>
+
+        <p class="text-lg mb-8 leading-relaxed">
+          La investigación ha demostrado consistentemente que la EI, medida a través de pruebas de desempeño como el MSCEIT, se correlaciona positivamente con el coeficiente intelectual (CI), especialmente con componentes del conocimiento adquirido <a href="https://pubmed.ncbi.nlm.nih.gov/32344642/" class="citation-link">[152]</a>.
+        </p>
+
+        <div class="staggered-layout mb-12">
+          <div class="bento-card">
+            <h3 class="font-tiempos text-xl font-bold text-emerald-800 mb-4">Correlación con Gc</h3>
+            <p class="text-slate-700 mb-4">
+              Un meta-análisis de 43 estudios encontró que la correlación entre EI y CI total era moderada (r ≈ 0.28), pero aún más fuerte con medidas de habilidades verbales y comprensión, componentes clave de la Gc.
+            </p>
+            <div class="bg-emerald-50 p-4 rounded-lg">
+              <p class="text-sm text-emerald-800">
+                <i class="fas fa-chart-line mr-2"></i>
+                El conocimiento verbal y factual acumulado a lo largo de la vida es un componente esencial de la competencia emocional.
+              </p>
+            </div>
+          </div>
+
+          <div class="bento-card">
+            <h3 class="font-tiempos text-xl font-bold text-amber-700 mb-4">Validez Incremental</h3>
+            <p class="text-slate-700 mb-4">
+              La EI mantiene su validez predictiva para el rendimiento laboral incluso después de controlar los efectos del CI y los cinco grandes rasgos de personalidad <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10955050/" class="citation-link">[131]</a>.
+            </p>
+            <div class="bg-amber-50 p-4 rounded-lg">
+              <p class="text-sm text-amber-800">
+                <i class="fas fa-shield-alt mr-2"></i>
+                La EI no es simplemente &#34;CI social&#34;, sino un conjunto coherente de habilidades especializadas.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <img src="https://kimi-web-img.moonshot.cn/img/media.springernature.com/1c15d83680890f9e7c317d29b957bde3ec0d93fd.png" alt="Scatter plot showing correlation between cognitive intelligence and emotional intelligence" class="w-full h-64 object-cover rounded-lg mb-8" size="medium" aspect="wide" style="photo" query="cognitive emotional intelligence correlation scatter plot" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Section 5: Practical Implications -->
+      <section id="implicaciones-practicas" class="mb-16">
+        <h2 class="font-tiempos text-3xl font-bold text-emerald-900 mb-8">5. Implicaciones Prácticas de la Relación Cognición-Emoción</h2>
+
+        <p class="text-lg mb-8 leading-relaxed">
+          La comprensión de la EI como una habilidad genuina, influenciada por la inteligencia cognitiva general, tiene profundas implicaciones prácticas en diversos ámbitos de la vida. Reconocer que las habilidades emocionales pueden desarrollarse abre nuevas posibilidades para la intervención y el crecimiento personal.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div class="bento-card">
+            <div class="flex items-center mb-4">
+              <i class="fas fa-graduation-cap text-2xl text-emerald-600 mr-3"></i>
+              <h3 class="font-tiempos text-xl font-bold text-emerald-800">Ámbito Educativo</h3>
+            </div>
+            <p class="text-slate-700 mb-4">
+              La EI predice la adaptación académica y social en estudiantes. Un estudio longitudinal encontró que las puntuaciones de EI al ingresar a la universidad predecían significativamente el rendimiento académico en el primer año <a href="https://bmcpsychology.biomedcentral.com/articles/10.1186/s40359-025-02779-w" class="citation-link">[134]</a>.
+            </p>
+            <div class="bg-emerald-50 p-3 rounded text-sm text-emerald-800">
+              <i class="fas fa-lightbulb mr-2"></i>
+              Programas como &#34;RULER&#34; de Yale enseñan habilidades específicas de EI
+            </div>
+          </div>
+
+          <div class="bento-card">
+            <div class="flex items-center mb-4">
+              <i class="fas fa-briefcase text-2xl text-amber-600 mr-3"></i>
+              <h3 class="font-tiempos text-xl font-bold text-amber-700">Ámbito Laboral</h3>
+            </div>
+            <p class="text-slate-700 mb-4">
+              La EI es un predictor robusto del desempeño laboral (ρ = 0.28) y se correlaciona fuertemente con el liderazgo transformacional <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10955050/" class="citation-link">[131]</a>.
+            </p>
+            <div class="bg-amber-50 p-3 rounded text-sm text-amber-800">
+              <i class="fas fa-chart-line mr-2"></i>
+              Complementa al CI en procesos de selección de personal
+            </div>
+          </div>
+
+          <div class="bento-card">
+            <div class="flex items-center mb-4">
+              <i class="fas fa-heart text-2xl text-red-600 mr-3"></i>
+              <h3 class="font-tiempos text-xl font-bold text-red-700">Ámbito Clínico</h3>
+            </div>
+            <p class="text-slate-700 mb-4">
+              La EI actúa como factor de protección contra conductas impulsivas y adictivas, y está intrínsecamente vinculada con la autorregulación emocional <a href="https://bmcpsychology.biomedcentral.com/articles/10.1186/s40359-025-02779-w" class="citation-link">[171]</a>.
+            </p>
+            <div class="bg-red-50 p-3 rounded text-sm text-red-800">
+              <i class="fas fa-shield-alt mr-2"></i>
+              Terapias como DBT se centran en desarrollar habilidades emocionales
+            </div>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <h3 class="font-tiempos text-xl font-bold text-emerald-800 mb-4">El Rol de la Educación en el Fortalecimiento de la EI</h3>
+          <p class="text-slate-700 mb-4">
+            La educación formal juega un papel crucial en el desarrollo de la <strong>inteligencia cristalizada (Gc)</strong>, que está fuertemente vinculada con la habilidad de comprender emociones. Al enseñar vocabulario, literatura y ciencias sociales, las escuelas proporcionan el marco conceptual para navegar el mundo emocional.
+          </p>
+          <blockquote class="border-l-4 border-amber-500 pl-4 italic text-amber-800">
+            &#34;Un estudiante con un rico vocabulario y una amplia base de conocimiento general estará mejor equipado para etiquetar sus propios sentimientos con precisión y comprender las perspectivas de los demás.&#34;
+          </blockquote>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <!-- Conclusions -->
+      <section id="conclusiones" class="mb-16">
+        <h2 class="font-tiempos text-3xl font-bold text-emerald-900 mb-8">Conclusiones y Perspectivas Futuras</h2>
+
+        <div class="bento-card mb-8">
+          <h3 class="font-tiempos text-2xl font-bold text-emerald-800 mb-6">Integración Teórica y Empírica</h3>
+          <p class="text-lg text-slate-700 mb-6 leading-relaxed">
+            La investigación científica respalda la conclusión de que la <strong>inteligencia cognitiva general influye significativamente en la inteligencia emocional</strong>, particularmente a través del conocimiento acumulado (inteligencia cristalizada). Sin embargo, la EI mantiene su validez única como predictor de éxito en múltiples dominios de la vida.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-emerald-50 p-4 rounded-lg">
+              <h4 class="font-bold text-emerald-800 mb-2">Hallazgos Clave</h4>
+              <ul class="text-sm text-emerald-700 space-y-1">
+                <li>• La EI es un factor de segundo estrato en el modelo CHC</li>
+                <li>• La correlación con Gc es más fuerte que con Gf</li>
+                <li>• La comprensión emocional depende del conocimiento cristalizado</li>
+                <li>• Validez incremental más allá del CI y personalidad</li>
+              </ul>
+            </div>
+
+            <div class="bg-amber-50 p-4 rounded-lg">
+              <h4 class="font-bold text-amber-800 mb-2">Aplicaciones Prácticas</h4>
+              <ul class="text-sm text-amber-700 space-y-1">
+                <li>• Desarrollo de programas educativos integrales</li>
+                <li>• Mejora en procesos de selección laboral</li>
+                <li>• Intervenciones terapéuticas basadas en habilidades</li>
+                <li>• Fomento del crecimiento personal y profesional</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <img src="https://kimi-web-img.moonshot.cn/img/www.simplypsychology.org/e24243bcc8978e1189f57e951eadb897d9b0c4d7.jpg" alt="Abstract representation of cognitive and emotional intelligence integration" class="w-full h-64 object-cover rounded-lg mb-8" size="medium" aspect="wide" query="abstract cognitive emotional intelligence integration" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+
+        <div class="highlight-box">
+          <h3 class="font-tiempos text-xl font-bold text-emerald-800 mb-4">Implicaciones para la Sociedad</h3>
+          <p class="text-slate-700 mb-4">
+            La comprensión de la relación entre inteligencia cognitiva y emocional tiene implicaciones profundas para la educación, el trabajo y la salud mental. Reconocer que las habilidades emocionales pueden desarrollarse y que están fundamentalmente conectadas con nuestras capacidades cognitivas abre nuevas vías para el crecimiento humano y el bienestar colectivo.
+          </p>
+          <p class="text-sm text-slate-600 italic">
+            El futuro de la psicología y la educación radica en integrar de manera holística el desarrollo de todas las capacidades humanas, reconociendo la interconexión fundamental entre cognición y emoción.
+          </p>
+        </div>
+      </section>
+
+      <!-- Footer with References -->
+      <footer class="mt-16 pt-8 border-t border-emerald-200">
+        <h3 class="font-tiempos text-xl font-bold text-emerald-800 mb-6">Referencias Clave</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-600">
+          <div>
+            <p><strong>[473, 499, 510]:</strong>
+              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5981239/" class="citation-link">Teoría de Spearman y factor &#39;g&#39;</a>
+            </p>
+            <p><strong>[484]:</strong>
+              <a href="https://www.mdpi.com/2079-3200/8/2/18" class="citation-link">Modelo CHC e integración de EI</a>
+            </p>
+            <p><strong>[480, 529]:</strong>
+              <a href="https://books.google.com/books/about/Emotional_Intelligence.html?hl=zh-CN&amp;id=YVKmxr_D7yQC" class="citation-link">Modelo de habilidades de Mayer-Salovey</a>
+            </p>
+            <p><strong>[533]:</strong>
+              <a href="https://www.psicothema.com/pdf/3285.pdf" class="citation-link">MSCEIT y medición de EI</a>
+            </p>
+          </div>
+          <div>
+            <p><strong>[152]:</strong>
+              <a href="https://pubmed.ncbi.nlm.nih.gov/32344642/" class="citation-link">Meta-análisis de correlación EI-CI</a>
+            </p>
+            <p><strong>[131]:</strong>
+              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10955050/" class="citation-link">Validez incremental en rendimiento laboral</a>
+            </p>
+            <p><strong>[134, 171]:</strong>
+              <a href="https://bmcpsychology.biomedcentral.com/articles/10.1186/s40359-025-02779-w" class="citation-link">Aplicaciones educativas y clínicas</a>
+            </p>
+            <p><strong>[334]:</strong>
+              <a href="https://www.mdpi.com/2071-1050/11/8/2299" class="citation-link">Programas de educación socioemocional</a>
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Highlight current section in TOC
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const tocLinks = document.querySelectorAll('.toc-fixed a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            tocLinks.forEach(link => {
+                link.classList.remove('font-bold', 'text-emerald-800');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('font-bold', 'text-emerald-800');
+                }
+            });
+        });
+    </script>
+  
+
+</body></html>
